@@ -12,12 +12,12 @@ app.listen(8000 || process.env.PORT, () => {
 
 app.get("/webhook", (req, res) => {
   let mode = req.query["hub.mode"];
-  let cahnllenge = req.query["hub.challenge"];
+  let challenge = req.query["hub.challenge"];
   let token = req.query["hub.verify_token"];
 
   if (mode && token) {
     if (mode === "subscribe" && token === myToken) {
-      res.status(200).send(cahnllenge);
+      res.status(200).send(challenge);
     } else {
       res.status(403);
     }
