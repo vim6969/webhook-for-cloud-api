@@ -22,6 +22,8 @@ app.get("/webhook", (req, res) => {
     } else {
       res.status(403);
     }
+  } else {
+    res.send(403).message("mode and token ftech error");
   }
 });
 
